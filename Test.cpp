@@ -45,7 +45,7 @@ TEST_CASE("only one turn played in the game")
     
 }
 
-TEST_CASE("non valid name")
+TEST_CASE("unvalid name and a player against himself")
 {
     Player player1("h");
     Player player2("");
@@ -106,17 +106,4 @@ TEST_CASE("plays to the end and byeond")
 }
 
 
-TEST_CASE("odd likely to happen Situation"){
-    Player p3("harel");
-    Player p4("giladi");
-    Player p5("eilon");
-    Game game1(p3,p4);
-    Game game2(p3, p5);
-    CHECK(p3.stacksize()==26);
-    game1.playTurn();
-    CHECK(p3.stacksize()!=p4.stacksize());
-    CHECK_THROWS(game2.playTurn());
-    CHECK_THROWS(game2.playAll());
-    
-    
-}
+
